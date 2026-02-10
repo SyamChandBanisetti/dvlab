@@ -3,6 +3,7 @@ HTML5 & JavaScript LAB MATERIAL (REFERENCE)
 QUESTIONS 1 TO 6 WITH PROGRAMS
 ====================================================
 
+
 ----------------------------------------------------
 1. Develop the Different Basic Graphical Shapes using HTML5 CANVAS
 ----------------------------------------------------
@@ -33,6 +34,7 @@ ctx.fillText("Canvas",200,180);
 </body>
 </html>
 
+
 ----------------------------------------------------
 2. Develop the Different Basic Graphical Shapes using HTML5 SVG
 ----------------------------------------------------
@@ -50,6 +52,7 @@ ctx.fillText("Canvas",200,180);
 
 </body>
 </html>
+
 
 ----------------------------------------------------
 3. Develop JavaScript code that receives input from user and gets in action
@@ -79,6 +82,7 @@ result.innerHTML = "Odd Number";
 
 </body>
 </html>
+
 
 ----------------------------------------------------
 4. Develop the Simple Bar Chart using HTML5 CANVAS
@@ -110,25 +114,118 @@ ctx.fillRect(60+i*60,260-data[i],40,data[i]);
 </body>
 </html>
 
+
 ----------------------------------------------------
 5. Read the data .txt file and draw Data Table and draw Simple Bar Chart
 ----------------------------------------------------
 
 Data File (data.txt)
+
 A,50
 B,20
 C,80
 D,10
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<input type="file" id="f">
+<table border="1" id="t"></table>
+<canvas id="c" width="400" height="300"></canvas>
+
+<script>
+f.onchange = e => {
+let r = new FileReader();
+
+r.onload = () => {
+let rows = r.result.split("\n").map(x => x.split(","));
+t.innerHTML = "";
+
+rows.forEach(row=>{
+t.innerHTML += "<tr><td>"+row[0]+"</td><td>"+row[1]+"</td></tr>";
+});
+
+let ctx = c.getContext("2d");
+
+ctx.moveTo(40,10);
+ctx.lineTo(40,260);
+ctx.stroke();
+
+ctx.moveTo(40,260);
+ctx.lineTo(380,260);
+ctx.stroke();
+
+for(let i=0;i<rows.length;i++){
+let v = rows[i][1];
+ctx.fillRect(60+i*60,260-v,40,v);
+}
+};
+
+r.readAsText(e.target.files[0]);
+};
+</script>
+
+</body>
+</html>
+
 
 ----------------------------------------------------
 6. Read the data .csv file and draw Data Table and draw Column Bar Chart
 ----------------------------------------------------
 
 Data File (data.csv)
+
 A,50
 B,20
 C,80
 D,10
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<input type="file" id="f">
+<table border="1" id="t"></table>
+<canvas id="c" width="400" height="300"></canvas>
+
+<script>
+f.onchange = e => {
+let r = new FileReader();
+
+r.onload = () => {
+let rows = r.result.split("\n").map(x => x.split(","));
+t.innerHTML = "";
+
+rows.forEach(row=>{
+t.innerHTML += "<tr><td>"+row[0]+"</td><td>"+row[1]+"</td></tr>";
+});
+
+let ctx = c.getContext("2d");
+
+ctx.moveTo(40,10);
+ctx.lineTo(40,260);
+ctx.stroke();
+
+ctx.moveTo(40,260);
+ctx.lineTo(380,260);
+ctx.stroke();
+
+for(let i=0;i<rows.length;i++){
+let v = rows[i][1];
+ctx.fillRect(60+i*60,260-v,40,v);
+}
+};
+
+r.readAsText(e.target.files[0]);
+};
+</script>
+
+</body>
+</html>
+
 
 ====================================================
 END OF MATERIAL REFERENCE (Q1 TO Q6)
