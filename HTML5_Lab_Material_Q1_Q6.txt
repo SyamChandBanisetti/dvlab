@@ -1,0 +1,135 @@
+====================================================
+HTML5 & JavaScript LAB MATERIAL (REFERENCE)
+QUESTIONS 1 TO 6 WITH PROGRAMS
+====================================================
+
+----------------------------------------------------
+1. Develop the Different Basic Graphical Shapes using HTML5 CANVAS
+----------------------------------------------------
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<canvas id="c" width="400" height="300"></canvas>
+
+<script>
+let ctx = document.getElementById("c").getContext("2d");
+
+ctx.fillRect(20,20,100,60);
+
+ctx.beginPath();
+ctx.moveTo(150,20);
+ctx.lineTo(300,20);
+ctx.stroke();
+
+ctx.beginPath();
+ctx.arc(100,180,40,0,2*Math.PI);
+ctx.stroke();
+
+ctx.fillText("Canvas",200,180);
+</script>
+
+</body>
+</html>
+
+----------------------------------------------------
+2. Develop the Different Basic Graphical Shapes using HTML5 SVG
+----------------------------------------------------
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<svg width="400" height="300">
+<rect x="20" y="20" width="100" height="60" fill="blue"/>
+<line x1="150" y1="20" x2="250" y2="80" stroke="black"/>
+<circle cx="100" cy="180" r="40" stroke="black" fill="none"/>
+<text x="200" y="180">SVG</text>
+</svg>
+
+</body>
+</html>
+
+----------------------------------------------------
+3. Develop JavaScript code that receives input from user and gets in action
+based on user input using HTML5 and JavaScript
+----------------------------------------------------
+
+<!DOCTYPE html>
+<html>
+<body>
+
+Enter a number:
+<input id="num">
+<button onclick="check()">Check</button>
+<p id="result"></p>
+
+<script>
+function check(){
+let result = document.getElementById("result");
+let n = Number(document.getElementById("num").value);
+
+if(n % 2 == 0)
+result.innerHTML = "Even Number";
+else
+result.innerHTML = "Odd Number";
+}
+</script>
+
+</body>
+</html>
+
+----------------------------------------------------
+4. Develop the Simple Bar Chart using HTML5 CANVAS
+----------------------------------------------------
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<canvas id="c" width="400" height="300"></canvas>
+
+<script>
+let ctx = document.getElementById("c").getContext("2d");
+let data = [50,80,30,90];
+
+ctx.moveTo(40,10);
+ctx.lineTo(40,260);
+ctx.stroke();
+
+ctx.moveTo(40,260);
+ctx.lineTo(380,260);
+ctx.stroke();
+
+for(let i=0;i<data.length;i++){
+ctx.fillRect(60+i*60,260-data[i],40,data[i]);
+}
+</script>
+
+</body>
+</html>
+
+----------------------------------------------------
+5. Read the data .txt file and draw Data Table and draw Simple Bar Chart
+----------------------------------------------------
+
+Data File (data.txt)
+A,50
+B,20
+C,80
+D,10
+
+----------------------------------------------------
+6. Read the data .csv file and draw Data Table and draw Column Bar Chart
+----------------------------------------------------
+
+Data File (data.csv)
+A,50
+B,20
+C,80
+D,10
+
+====================================================
+END OF MATERIAL REFERENCE (Q1 TO Q6)
+====================================================
